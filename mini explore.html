@@ -1,0 +1,687 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore College | Government Polytechnic Sira</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eef7ff, #fff8ed);
+            color: #172033;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.92);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #153e75;
+        }
+
+        .logo span {
+            color: #f39c12;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #153e75;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 420px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #fff0d5;
+            color: #c66a00;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            color: #12355b;
+        }
+
+        .hero h1 span {
+            color: #e67e22;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #536174;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: linear-gradient(45deg, #153e75, #2878c8);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(21,62,117,0.25);
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* COLLEGE ICON CARD */
+        .college-card {
+            width: 330px;
+            height: 300px;
+            background: white;
+            border-radius: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            border: 1px solid #e8edf5;
+        }
+
+        .college-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #153e75, #f39c12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            margin-bottom: 18px;
+        }
+
+        .college-card h2 {
+            color: #153e75;
+        }
+
+        .college-card p {
+            color: #777;
+            margin-top: 7px;
+        }
+
+        /* STATS */
+        .stats {
+            padding: 20px 8% 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-box h2 {
+            color: #e67e22;
+            font-size: 30px;
+        }
+
+        .stat-box p {
+            margin-top: 8px;
+            color: #596579;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            color: #153e75;
+            font-size: 34px;
+        }
+
+        .section-title p {
+            color: #6d7786;
+            margin-top: 8px;
+        }
+
+        /* INFO CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            border-top: 5px solid #2878c8;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #153e75;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            line-height: 1.7;
+            color: #606b7a;
+        }
+
+        /* COURSES */
+        .course-section {
+            background: #153e75;
+            color: white;
+        }
+
+        .course-section .section-title h2,
+        .course-section .section-title p {
+            color: white;
+        }
+
+        .course-card {
+            background: white;
+            color: #222;
+            padding: 25px;
+            border-radius: 22px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: scale(1.04);
+        }
+
+        .course-card .emoji {
+            font-size: 42px;
+        }
+
+        .course-card h3 {
+            margin: 12px 0 7px;
+            color: #153e75;
+        }
+
+        .course-card p {
+            color: #687386;
+        }
+
+        /* WHY US */
+        .why-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+        }
+
+        .why-text {
+            flex: 1;
+        }
+
+        .why-text h2 {
+            color: #153e75;
+            margin-bottom: 15px;
+        }
+
+        .why-text p {
+            line-height: 1.8;
+            color: #606b7a;
+        }
+
+        .points {
+            flex: 1;
+        }
+
+        .points div {
+            background: #f3f8ff;
+            padding: 13px 18px;
+            margin: 10px 0;
+            border-radius: 12px;
+            color: #153e75;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0c2544;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 7px;
+            color: #dce7f5;
+        }
+
+        /* MOBILE */
+        @media(max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .college-card {
+                width: 90%;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .why-box {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width: 500px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">GPT <span>SIRA</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="admission.html">Admission</a>
+    </div>
+</nav>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="tag"> EXPLORE OUR CAMPUS</div>
+
+        <h1>
+            Discover <span>Government Polytechnic</span> Sira
+        </h1>
+
+        <p>
+            A government technical institution in Sira, Tumakuru,
+            providing diploma-level technical education and
+            opportunities for students to develop knowledge,
+            skills and confidence for their future.
+        </p>
+
+        <a href="#discover" class="explore-btn">
+            Explore More 
+        </a>
+
+    </div>
+
+
+    <div class="college-card">
+
+        <div class="college-icon"></div>
+
+        <h2>GPT Sira</h2>
+
+        <p>Government Polytechnic, Sira</p>
+
+        <p> Tumakuru, Karnataka</p>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK STATS -->
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>2019</h2>
+        <p>Established</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>3+</h2>
+        <p>Diploma Courses</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>180+</h2>
+        <p>Reported Seats</p>
+    </div>
+
+    <div class="stat-box">
+        <h2></h2>
+        <p>Sira, Tumakuru</p>
+    </div>
+
+</section>
+
+
+<!-- DISCOVER -->
+<section class="section" id="discover">
+
+    <div class="section-title">
+        <h2> Discover Our College</h2>
+
+        <p>
+            Learn about the campus, education and student facilities
+        </p>
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon"></div>
+
+            <h3>Technical Education</h3>
+
+            <p>
+                GPT Sira focuses on diploma-level technical education,
+                helping students build practical knowledge and
+                technical skills for their careers.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon"></div>
+
+            <h3>Learning & Practical Skills</h3>
+
+            <p>
+                Students get opportunities to learn through technical
+                subjects, practical activities, laboratories and
+                academic training.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">🌱</div>
+
+            <h3>Student Development</h3>
+
+            <p>
+                The college environment encourages students to improve
+                their technical knowledge, confidence, teamwork and
+                professional skills.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon"></div>
+
+            <h3>Academic Environment</h3>
+
+            <p>
+                Students can focus on their diploma studies while
+                developing practical and problem-solving abilities.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon"></div>
+
+            <h3>Technology & Innovation</h3>
+
+            <p>
+                Technical education provides students with a foundation
+                to understand modern technology and explore innovative
+                ideas.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon"></div>
+
+            <h3>Future Ready</h3>
+
+            <p>
+                Diploma education helps students prepare for higher
+                education, employment and future technical careers.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+<section class="section course-section">
+
+    <div class="section-title">
+
+        <h2> Explore Diploma Courses</h2>
+
+        <p>
+            Choose your area of technical interest
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="course-card">
+            <div class="emoji"></div>
+            <h3>Civil Engineering</h3>
+            <p>Construction, structures and infrastructure.</p>
+        </div>
+
+
+        <div class="course-card">
+            <div class="emoji"></div>
+            <h3>Electrical & Electronics</h3>
+            <p>Electrical systems and electronic technology.</p>
+        </div>
+
+
+        <div class="course-card">
+            <div class="emoji"></div>
+            <h3>Mechanical Engineering</h3>
+            <p>Machines, manufacturing and mechanical systems.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY COLLEGE -->
+<section class="section">
+
+    <div class="why-box">
+
+        <div class="why-text">
+
+            <h2> Why Explore GPT Sira?</h2>
+
+            <p>
+                Government Polytechnic Sira provides a technical
+                education environment where students can develop
+                academic understanding along with practical skills.
+                It is located near NH-48, making the institution
+                accessible from the surrounding areas.
+            </p>
+
+        </div>
+
+
+        <div class="points">
+
+            <div>* Government Technical Institution</div>
+
+            <div>* Diploma Engineering Education</div>
+
+            <div>* Practical Learning Environment</div>
+
+            <div>* Multiple Technical Disciplines</div>
+
+            <div>* Student Skill Development</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+<section class="section">
+
+    <div class="section-title">
+
+        <h2> Find Us</h2>
+
+        <p>
+            Government Polytechnic, Sira
+        </p>
+
+    </div>
+
+
+    <div class="card" style="text-align:center;">
+
+        <h3>Government Polytechnic Sira</h3>
+
+        <p>
+            Near Silk Farm, NH-48,<br>
+            Sira, Tumakuru District,<br>
+            Karnataka – 572137
+        </p>
+
+        <br>
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Government+Polytechnic+Sira"
+            target="_blank"
+            class="explore-btn">
+             Open Location
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h2> Government Polytechnic Sira</h2>
+
+    <p>Learn • Build • Innovate • Grow</p>
+
+    <p>
+         2026 GPT Sira | College Information Portal
+    </p>
+
+</footer>
+
+<center>
+<a href="collage database.html">
+<button
+style="background-color:#003366;color:white;padding:10px 20px;">
+Back to Home
+</button>
+</a>
+</body>
+</html>
+```
